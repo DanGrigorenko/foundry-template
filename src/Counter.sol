@@ -1,14 +1,16 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.25;
 
-contract Counter {
+import { ICounter } from "./interfaces/ICounter.sol";
+
+contract Counter is ICounter {
     uint256 public number;
 
-    function setNumber(uint256 newNumber) public {
+    function setNumber(uint256 newNumber) external override {
         number = newNumber;
     }
 
-    function increment() public {
+    function increment() external override {
         number++;
     }
 }
