@@ -29,7 +29,7 @@ deploy-simplestorage-amoy:
 	$(BIN_FORGE) script script/DeploySimpleStorage.s.sol --rpc-url $(AMOY_RPC_URL) --broadcast --private-key $(DEPLOYER_PRIVATE_KEY)
 deploy-simplestorage-sepolia:
 	$(BIN_FORGE) script script/DeploySimpleStorage.s.sol --rpc-url $(SEPOLIA_RPC_URL) --broadcast --private-key $(DEPLOYER_PRIVATE_KEY)
-deploy-simplestorage-sepolia:
-	$(BIN_FORGE) script script/DeploySimpleStorage.s.sol --rpc-url $(SEPOLIA_RPC_URL) --broadcast --private-key $(DEPLOYER_PRIVATE_KEY)
-deploy-simplestorage-sepolia:
-	$(BIN_FORGE) script script/DeploySimpleStorage.s.sol --rpc-url $(SEPOLIA_RPC_URL) --broadcast --private-key $(DEPLOYER_PRIVATE_KEY)
+deploy-simplestorage-polygon:
+	$(BIN_FORGE) script script/DeploySimpleStorage.s.sol --rpc-url $(POLYGON_RPC_URL) --broadcast --private-key $(DEPLOYER_PRIVATE_KEY)
+deploy-simplestorage-ethereum:
+	$(BIN_FORGE) script script/DeploySimpleStorage.s.sol --rpc-url $(ETHEREUM_RPC_URL) --broadcast --private-key $(DEPLOYER_PRIVATE_KEY)
