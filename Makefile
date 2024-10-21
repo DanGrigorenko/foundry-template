@@ -5,20 +5,26 @@ export $(shell sed 's/=.*//' .env)
 # Binaries
 BIN_FORGE=$(HOME)/.foundry/bin/forge
 
+# Networks chain ids
+SEPOLA_CHAIN_ID := 11155111
+AMOY_CHAIN_ID := 80002
+ETHEREUM_CHAIN_ID := 1
+POLYGON_CHAIN_ID := 137
+
 # Localhost contract addresses
 LOCALHOST_SIMPLE_STORAGE := 0x5FbDB2315678afecb367f032d93F642f64180aa3
 
 # Sepolia contract addresses
-SEPOLIA_SIMPLE_STORAGE := 0xAd4FC78C83Ac9414bb3D68F97eec3de1Cc36bb0e
+SEPOLIA_SIMPLE_STORAGE := 0x03b2e970CEFcaf4eC054914dA5B439d110dC239B
 
 # Amoy contract addresses
-AMOY_SIMPLE_STORAGE := 0xF9b962ACcF24529d90aB96AB86363beB288AF991
+AMOY_SIMPLE_STORAGE := 0x63878A24fe87701E69d200D2b0FC5347da672494
 
 # Ethereum contract addresses
 ETHEREUM_SIMPLE_STORAGE :=
 
 # Polygon contract addresses
-Polygon_SIMPLE_STORAGE :=
+POLYGON_SIMPLE_STORAGE :=
 
 # Contract paths
 CONTRACT_PATH_SIMPLE_STORAGE := src/SimpleStorage.sol:SimpleStorage
@@ -39,10 +45,10 @@ deploy-simplestorage-polygon:
 
 # Verify the SimpleStorage contract
 verify-simplestorage-sepolia:
-	$(BIN_FORGE) verify-contract --chain-id 11155111 --etherscan-api-key $(ETHERSCAN_API_KEY) $(SEPOLIA_SIMPLE_STORAGE) $(CONTRACT_PATH_SIMPLE_STORAGE)
+	$(BIN_FORGE) verify-contract --chain-id $(SEPOLA_CHAIN_ID) --etherscan-api-key $(ETHERSCAN_API_KEY) $(SEPOLIA_SIMPLE_STORAGE) $(CONTRACT_PATH_SIMPLE_STORAGE)
 verify-simplestorage-amoy:
-	$(BIN_FORGE) verify-contract --chain-id 80002 --etherscan-api-key $(POLYGONSCAN_API_KEY) $(AMOY_SIMPLE_STORAGE) $(CONTRACT_PATH_SIMPLE_STORAGE)
+	$(BIN_FORGE) verify-contract --chain-id $(AMOY_CHAIN_ID) --etherscan-api-key $(POLYGONSCAN_API_KEY) $(AMOY_SIMPLE_STORAGE) $(CONTRACT_PATH_SIMPLE_STORAGE)
 verify-simplestorage-ethereum:
-	$(BIN_FORGE) verify-contract --chain-id 1 --etherscan-api-key $(ETHERSCAN_API_KEY) $(ETHEREUM_SIMPLE_STORAGE) $(CONTRACT_PATH_SIMPLE_STORAGE)
+	$(BIN_FORGE) verify-contract --chain-id $(ETHEREUM_CHAIN_ID) --etherscan-api-key $(ETHERSCAN_API_KEY) $(ETHEREUM_SIMPLE_STORAGE) $(CONTRACT_PATH_SIMPLE_STORAGE)
 verify-simplestorage-polygon:
-	$(BIN_FORGE) verify-contract --chain-id 137 --etherscan-api-key $(POLYGONSCAN_API_KEY) $(Polygon_SIMPLE_STORAGE) $(CONTRACT_PATH_SIMPLE_STORAGE)
+	$(BIN_FORGE) verify-contract --chain-id $(POLYGON_CHAIN_ID) --etherscan-api-key $(POLYGONSCAN_API_KEY) $(POLYGON_SIMPLE_STORAGE) $(CONTRACT_PATH_SIMPLE_STORAGE)

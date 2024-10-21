@@ -10,4 +10,9 @@ contract SimpleStorageTest is Test {
     function setUp() public {
         simpleStorage = new SimpleStorage();
     }
+
+    function testAddPerson() public {
+        simpleStorage.addPerson("Mark", 20);
+        assertEq(simpleStorage.nameToFavoriteNumber("Mark"), 20);
+    }
 }
